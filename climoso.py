@@ -92,7 +92,7 @@ def Mojave():
         inicio = time.time()
 
         while horas_transcurridas < max_horas:
-            time.sleep(3600)  # Espera una hora
+            await asyncio.sleep(3600)  # Espera una hora
             horas_transcurridas = (time.time() - inicio) / 3600
 
         if es_hora_medianoche_gmt_minus_8():
@@ -281,7 +281,7 @@ def Washington():
         inicio = time.time()
 
         while horas_transcurridas < max_horas:
-            time.sleep(3600)  # Espera una hora
+            await asyncio.sleep(3600)  # Espera una hora
             horas_transcurridas = (time.time() - inicio) / 3600
 
         if es_hora_medianoche_gmt_minus_5():
@@ -459,7 +459,7 @@ def Boston():
         inicio = time.time()
 
         while horas_transcurridas < max_horas:
-            time.sleep(3600)  # Espera una hora
+            await asyncio.sleep(3600)  # Espera una hora
             horas_transcurridas = (time.time() - inicio) / 3600
 
         if es_hora_medianoche_gmt_minus_5():
