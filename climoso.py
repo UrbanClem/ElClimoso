@@ -35,15 +35,6 @@ def Mojave():
     global dia_aparecido_hoy_mojave
     dia_aparecido_hoy_mojave = False
 
-    
-    def contar_horas(max_horas=13):
-        global inicio, horas_transcurridas
-        horas_transcurridas = 0
-
-        while horas_transcurridas < max_horas:
-            time.sleep(3600)  # Espera una hora
-            horas_transcurridas = (time.time() - inicio) / 3600
-
     def es_hora_8pm_gmt_minus_8():
         """Verifica si la hora actual en GMT-8 es 8:00 PM."""
         ahora = datetime.now(gmt_minus_8)
@@ -92,7 +83,17 @@ def Mojave():
 
     @tasks.loop(seconds=1)
     async def enviar_eventos():
-        global evento_actual_mojave, tiempo_evento_actual_mojave, espera_evento_nuevo_mojave, noche_aparecida_hoy_mojave, dia_aparecido_hoy_mojave, duracion_evento_mojave
+        global evento_actual_mojave, tiempo_evento_actual_mojave, espera_evento_nuevo_mojave, noche_aparecida_hoy_mojave, dia_aparecido_hoy_mojave, duracion_evento_mojave, horas_transcurridas
+        
+        horas_transcurridas = 0
+
+        max_horas = 13
+
+        inicio = time.time()
+
+        while horas_transcurridas < max_horas:
+            time.sleep(3600)  # Espera una hora
+            horas_transcurridas = (time.time() - inicio) / 3600
 
         if es_hora_medianoche_gmt_minus_8():
             noche_aparecida_hoy_mojave = False
@@ -271,7 +272,17 @@ def Washington():
 
     @tasks.loop(seconds=1)
     async def enviar_eventos():
-        global evento_actual_washington, tiempo_evento_actual_washington, espera_evento_nuevo_washington, noche_aparecida_hoy_washington, dia_aparecido_hoy_washington, duracion_evento_washington
+        global evento_actual_washington, tiempo_evento_actual_washington, espera_evento_nuevo_washington, noche_aparecida_hoy_washington, dia_aparecido_hoy_washington, duracion_evento_washington, horas_transcurridas
+        
+        horas_transcurridas = 0
+
+        max_horas = 13
+
+        inicio = time.time()
+
+        while horas_transcurridas < max_horas:
+            time.sleep(3600)  # Espera una hora
+            horas_transcurridas = (time.time() - inicio) / 3600
 
         if es_hora_medianoche_gmt_minus_5():
             noche_aparecida_hoy_washington = False
@@ -393,14 +404,6 @@ def Boston():
     # Variable global para controlar el amanecer
     global dia_aparecido_hoy
     dia_aparecido_hoy = False
-
-    def contar_horas(max_horas=13):
-        global inicio, horas_transcurridas
-        horas_transcurridas = 0
-
-        while horas_transcurridas < max_horas:
-            time.sleep(3600)  # Espera una hora
-            horas_transcurridas = (time.time() - inicio) / 3600
     
     def es_hora_8pm_gmt_minus_5():
         """Verifica si la hora actual en GMT-5 es 8:00 PM."""
@@ -447,7 +450,17 @@ def Boston():
 
     @tasks.loop(seconds=1)
     async def enviar_eventos():
-        global evento_actual, tiempo_evento_actual, espera_evento_nuevo, noche_aparecida_hoy, dia_aparecido_hoy, duracion_evento
+        global evento_actual, tiempo_evento_actual, espera_evento_nuevo, noche_aparecida_hoy, dia_aparecido_hoy, duracion_evento, horas_transcurridas
+        
+        horas_transcurridas = 0
+
+        max_horas = 13
+
+        inicio = time.time()
+
+        while horas_transcurridas < max_horas:
+            time.sleep(3600)  # Espera una hora
+            horas_transcurridas = (time.time() - inicio) / 3600
 
         if es_hora_medianoche_gmt_minus_5():
             noche_aparecida_hoy = False
